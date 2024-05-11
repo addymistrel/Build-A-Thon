@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { chakra, Stack, Text, Button, Box, Link } from "@chakra-ui/react";
-import { GiCoffeeCup } from "react-icons/gi";
+import { IoCallSharp } from "react-icons/io5";
 import { Link as Navlink } from "react-router-dom";
 
 const textArray = [
-  "# Create READMEs with ease",
-  "# Collaborate in real-time",
-  "# Live markdown compilation",
+  "Personalized Care Calendars",
+  "Compassionate Companion Calls",
+  "Safe And Secured",
 ];
 
 const Typewriter = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
-  const typingSpeed = 200; // Adjust the typing speed as needed (lower value = faster)
+  const typingSpeed = 200;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -58,8 +58,8 @@ const HeroSection = () => {
           fontSize="md"
         >
           <Stack direction={{ base: "column", sm: "row" }}>
-            <Text fontWeight="bold">Ready, Set, Build! 🚀</Text>
-            <Text>Join the Community!</Text>
+            <Text fontWeight="bold">Give Your Loved Ones a Better Life 👴</Text>
+            {/* <Text>Join the Community!</Text> */}
           </Stack>
         </Box>
         <chakra.h1
@@ -68,7 +68,7 @@ const HeroSection = () => {
           textAlign="center"
           maxW="800px"
         >
-          Get started with ReadMeMaker
+          With AID-G
           <br />
           <chakra.span
             color="teal"
@@ -78,12 +78,13 @@ const HeroSection = () => {
           </chakra.span>
         </chakra.h1>
         <Text maxW="850px" fontSize="xl" textAlign="center" color="gray.500">
-          Crafting documentation is like painting the portrait of your project's
-          soul. Each line of code, every design choice, and every contributor's
-          effort are woven together into a tapestry that tells the story of your
-          creation. With our README.md generator, you hold the artist's brush,
-          effortlessly turning your vision into a masterpiece of clarity and
-          understanding.
+          Welcome to our corner of compassion, where reminders aren't just
+          notifications, but gentle whispers guiding you towards a healthier,
+          happier you. In our community, every nudge is a touch of care,
+          tailored to your unique needs and delivered with warmth and
+          understanding. Join us on this journey of wellness, where reminders
+          become companions, standing by your side every step of the way.
+          Together, let's embrace a future filled with well-being and joy.
         </Text>
         <Stack
           direction={{ base: "column", sm: "row" }}
@@ -99,11 +100,11 @@ const HeroSection = () => {
               height="3.5rem"
               fontSize="1.2rem"
             >
-              Get Started
+              Explore Features
             </Button>
           </Link>
           <Button
-            leftIcon={<GiCoffeeCup />}
+            leftIcon={<IoCallSharp />}
             colorScheme="gray"
             variant="outline"
             rounded="md"
@@ -112,7 +113,7 @@ const HeroSection = () => {
             fontSize="1rem"
             borderColor="black.500"
           >
-            Buy me a coffee
+            Request A Call
           </Button>
         </Stack>
       </Stack>
