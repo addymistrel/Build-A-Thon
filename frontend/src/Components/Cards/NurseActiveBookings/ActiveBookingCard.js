@@ -72,7 +72,7 @@ function NurseActiveBookingCard(props) {
 ]
 
   return (
-    <Box p={8} borderRadius="md" boxShadow="lg" bg="white">
+    <Box p={8} borderRadius="md" boxShadow="lg" bg="white" >
       <Tabs defaultIndex={0} colorScheme="blue" isLazy={areTabsDisabled}>
         <TabList justifyContent="center" borderBottomWidth="1px" pb={2}>
           {sections.map((section, index) => (
