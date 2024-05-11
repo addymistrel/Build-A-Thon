@@ -378,7 +378,7 @@ export default function ContactFaq() {
         <Flex flex={1} p={3}>
           <Image
             alt={"Image"}
-            objectFit={"cover"}
+            objectFit="fill"
             w={800}
             h={400}
             p={5}
