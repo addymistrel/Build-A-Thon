@@ -2,6 +2,7 @@ import { useState, React, useEffect } from "react";
 import axios from "axios";
 import "./Homepage.css";
 import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Navbar/Footer/Footer";
 
 // function Home() {
 //   const EURL = "http://localhost:8080";
@@ -78,6 +79,8 @@ export default function Homepage() {
   return (
     <>
       <Navbar />;
+      
+      <Footer/>
     </>
   );
 }
