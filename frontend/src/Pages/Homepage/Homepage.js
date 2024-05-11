@@ -78,8 +78,7 @@ import Footer from "../../Components/Navbar/Footer/Footer";
 export default function Homepage() {
   return (
     <>
-      <Navbar />;
-      
+      <Navbar />;   
       <Footer/>
     </>
   );
