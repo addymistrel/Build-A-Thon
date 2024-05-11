@@ -37,6 +37,8 @@ import {
 import { HiOutlineMail } from "react-icons/hi";
 import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
 import { RiLockPasswordLine } from "react-icons/ri";
+import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const IconButton = ({ children }) => {
   return (
@@ -54,11 +56,30 @@ const IconButton = ({ children }) => {
 };
 
 const Navbar = () => {
+  const navigate=useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
+  const [email,setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+
+  async function HandleLogin(){
+    const res= await axios.post("/nurse/login", {
+      email:email,
+      password:password
+    }).then(()=>{
+      console.log('success');
+    })
+  }
+
+  function HandleSignUp(){
+    onClose();
+    navigate('/register',{});
+  }
+
   return (
+
     <>
       <Box
         py="2"
@@ -96,14 +117,7 @@ const Navbar = () => {
               >
                 Sign in
               </Button>
-              <Button
-                color="#fff"
-                rounded="md"
-                bg="#e51b23"
-                _hover={{ bg: "#323ebe" }}
-              >
-                Sign Up
-              </Button>
+              
               {/* <IconButton>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -204,6 +218,7 @@ const Navbar = () => {
                   type="email"
                   ref={initialRef}
                   placeholder="Enter Your Email"
+                  onChange={(e)=>{setEmail(e.target.value)}}
                 />
               </InputGroup>
             </FormControl>
@@ -223,6 +238,7 @@ const Navbar = () => {
                   variant={"filled"}
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter Your Password"
+                  onChange={(e)=>{setPassword(e.target.value)}}
                 />
                 <InputRightElement>
                   <IconButton
@@ -240,10 +256,11 @@ const Navbar = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Button background={"#e51b23"} color={"white"} mr={3}>
+            <Button background={"#e51b23"} color={"white"} mr={3}
+            onClick={HandleLogin}>
               Login
             </Button>
-            <Button>Sign up</Button>
+            <Button onClick={HandleSignUp}>Sign up</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
