@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Box,
@@ -15,9 +15,28 @@ import {
   MenuItem,
   Text,
   Link,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
   MenuDivider,
+  useDisclosure,
+  FormLabel,
+  FormControl,
   useColorModeValue,
+  useStatStyles,
 } from "@chakra-ui/react";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
+import { HiOutlineMail } from "react-icons/hi";
+import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
+import { RiLockPasswordLine } from "react-icons/ri";
 
 const IconButton = ({ children }) => {
   return (
@@ -35,6 +54,10 @@ const IconButton = ({ children }) => {
 };
 
 const Navbar = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const initialRef = React.useRef(null);
+  const finalRef = React.useRef(null);
   return (
     <>
       <Box
@@ -53,7 +76,7 @@ const Navbar = () => {
               alt="dev logo"
               w={"auto"}
               h={12}
-              src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
+              src="/assets/img/logo_nobg.png"
             />
             <Input
               maxW="26rem"
@@ -67,12 +90,21 @@ const Navbar = () => {
               <Button
                 color="#fff"
                 rounded="md"
-                bg="#3b49df"
+                bg="#e51b23"
+                _hover={{ bg: "#323ebe" }}
+                onClick={onOpen}
+              >
+                Sign in
+              </Button>
+              <Button
+                color="#fff"
+                rounded="md"
+                bg="#e51b23"
                 _hover={{ bg: "#323ebe" }}
               >
-                Create a post
+                Sign Up
               </Button>
-              <IconButton>
+              {/* <IconButton>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -134,11 +166,87 @@ const Navbar = () => {
                     <Text fontWeight="500">Sign Out</Text>
                   </MenuItem>
                 </MenuList>
-              </Menu>
+              </Menu> */}
             </HStack>
           </HStack>
         </Container>
       </Box>
+
+      <Modal
+        initialFocusRef={initialRef}
+        finalFocusRef={finalRef}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <ModalOverlay />
+        <ModalContent alignItems={"center"}>
+          <ModalHeader
+            textAlign={"center"}
+            textColor={"#e51b23"}
+            fontSize={"x-large"}
+          >
+            Sign in
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+            <FormControl>
+              <FormLabel>Email</FormLabel>
+              <InputGroup>
+                <InputLeftElement pointerEvents="none">
+                  <div className="flex justify-center items-center mt-2">
+                    <HiOutlineMail />
+                  </div>
+                </InputLeftElement>
+                <Input
+                  size={"lg"}
+                  sx={{ width: "320px" }}
+                  variant={"filled"}
+                  type="email"
+                  ref={initialRef}
+                  placeholder="Enter Your Email"
+                />
+              </InputGroup>
+            </FormControl>
+
+            <FormControl mt={4}>
+              <FormLabel>Password</FormLabel>
+              <InputGroup>
+                <InputLeftElement pointerEvents="none">
+                  <div className="flex justify-center items-center mt-2">
+                    <RiLockPasswordLine fill="grey" />
+                  </div>
+                </InputLeftElement>
+                <Input
+                  // onChange={(e) => setLoginPassword(e.target.value)}
+                  size={"lg"}
+                  sx={{ width: "320px" }}
+                  variant={"filled"}
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter Your Password"
+                />
+                <InputRightElement>
+                  <IconButton
+                    aria-label={
+                      showPassword ? "Hide password" : "Show password"
+                    }
+                    icon={showPassword ? <RiEyeOffLine /> : <RiEyeLine />}
+                    onClick={() => setShowPassword(!showPassword)}
+                    variant="unstyled"
+                    size="md"
+                  />
+                </InputRightElement>
+              </InputGroup>
+            </FormControl>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button background={"#e51b23"} color={"white"} mr={3}>
+              Login
+            </Button>
+            <Button>Sign up</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   );
 };
