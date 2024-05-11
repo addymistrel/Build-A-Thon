@@ -5,6 +5,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import Mainsection from "../../Components/Mainsection/Mainsection";
 import HeroSection from "../../Components/Herosection/Herosection";
+import Stats from "../../Components/Stats/Stats";
 
 export default function Homepage() {
   return (
