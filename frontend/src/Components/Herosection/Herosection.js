@@ -51,7 +51,7 @@ const HeroSection = () => {
           mt={10}
           py={2}
           px={3}
-          bg="teal"
+          bg="red.500"
           w="max-content"
           color="white"
           rounded="md"
