@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Homepage.css";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
+import HeroSection from "../../Components/Hero/Hero";
 
 // function Home() {
 //   const EURL = "http://localhost:8080";
@@ -79,7 +80,7 @@ export default function Homepage() {
   return (
     <>
       <Navbar />;
-      
+      <HeroSection/>
       <Footer/>
     </>
   );
