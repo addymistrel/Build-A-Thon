@@ -71,7 +71,7 @@ const HeroSection = () => {
           With AID-G
           <br />
           <chakra.span
-            color="teal"
+            color="red.500"
             bg="linear-gradient(transparent 50%, #83e9e7 50%)"
           >
             <Typewriter />
@@ -91,7 +91,7 @@ const HeroSection = () => {
           w={{ base: "100%", sm: "auto" }}
           spacing={5}
         >
-          <Link as={Navlink} to="/editor">
+          <Link as={Navlink} to="/support">
             <Button
               colorScheme="teal"
               variant="outline"
@@ -100,7 +100,7 @@ const HeroSection = () => {
               height="3.5rem"
               fontSize="1.2rem"
             >
-              Explore Features
+              Support and Review
             </Button>
           </Link>
           <Button
