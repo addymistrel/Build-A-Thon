@@ -9,6 +9,7 @@ const Razorpay = require("razorpay");
 //google mail and Nodemailer
 const nodemailer = require("nodemailer");
 const ApplyAdmissionModel = require("./Schema/Admission");
+const NurseModel = require("./Schema/NurseModel");
 
 //environment variables
 const MONGO_URL =
@@ -149,6 +150,59 @@ app.post("/checkConnection", async (req, res) => {
 //     return res.status(200).json(order);
 //   });
 // });
+
+app.post("/registerNewNurse", async (req, res) => {
+  await mongoose.connect(MONGO_URL);
+  console.log(req.body.formData);
+  const formData = req.body.formData;
+  const name = formData.name;
+  const email = formData.email;
+  const phoneNumber = formData.phoneNumber;
+  const addressName = formData.name;
+  const addressLine1 = formData.addressLine1;
+  const addressLine2 = formData.addressLine2;
+  const city = formData.city;
+  const state = formData.state;
+  const pin = formData.pin;
+  const UHID = formData.UHID;
+  const NUID = formData.NUID;
+  const Experience = formData.Exp
+  if (formData) {
+    try {
+      const updatedResponse = await NurseModel.create(
+        {
+          email: email,
+        },
+        {
+          $set: {
+            name: name,
+            phoneNumber: phoneNumber,
+            "address.0.addressName": addressName,
+            "address.0.addressLine1": addressLine1,
+            "address.0.addressLine2": addressLine2,
+            "address.0.city": city,
+            "address.0.state": state,
+            "address.0.pincode": pin,
+            UHID:UHID,
+            NUID:NUID,
+            Experience:Experience
+          },
+        }
+      );
+      if (updatedResponse) {
+        res.status(200).json(true);
+      } else {
+        res.status(200).json(null);
+      }
+    } catch (err) {
+      console.log(err);
+      res.status(500).send("Error in try catch");
+    }
+  } else {
+    res.status(500).json("Internal Server Error");
+  }
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
