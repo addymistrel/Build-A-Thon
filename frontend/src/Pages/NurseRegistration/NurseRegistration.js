@@ -18,11 +18,12 @@ import {
   Image,
 } from "@chakra-ui/react";
 //import Cookies from "js-cookie";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import imageCompression from "browser-image-compression";
 
 const NurseRegistration = () => {
+    const navigate=useNavigate();
   //const { setRunContext } = useContext(UserContext);
   const userData = localStorage.getItem("grabwayUser");
   const hasUserData = userData;
@@ -172,7 +173,9 @@ const NurseRegistration = () => {
       setErrors(newErrors);
     }
   };
-
+  function RedirectToBookings(){
+    navigate("/nurse/active/bookings");
+  }
   
   return (
     <div className="background-container">
@@ -460,7 +463,8 @@ const NurseRegistration = () => {
             <Button
               colorScheme="blue"
               mt={4}
-              onClick={handleSubmit}
+              //onClick={handleSubmit}
+              onClick={RedirectToBookings}
               isDisabled={!isChecked}
             >
               Register
