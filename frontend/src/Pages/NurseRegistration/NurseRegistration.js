@@ -32,6 +32,7 @@ const NurseRegistration = () => {
     name: "",
     lastName: "",
     email: hasUserData ? JSON.parse(userData).email : "",
+    password:null,
     phoneNumber: hasUserData ? JSON.parse(userData).phoneNumber : "",
     location: "",
     addressLine1: "",
@@ -153,11 +154,11 @@ const NurseRegistration = () => {
       //Submission logic here
       //console.log("clicked");
       const response = await axios
-        .post("/registerNewDriver", {
+        .post("/register/nurse", {
           formData,
         })
         .then((res) => {
-          //console.log(res);
+          console.log(res);
           setTimeout(() => {
             //setRunContext("driver from submited");
           }, 1500);
@@ -258,6 +259,21 @@ const NurseRegistration = () => {
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
+                  }
+                  disabled={hasUserData}
+                />
+                <FormErrorMessage>{errors.email}</FormErrorMessage>
+              </FormControl>
+
+              {/* Password */}
+              <FormControl mt={4} isRequired isInvalid={!!errors.email}>
+                <FormLabel>Password</FormLabel>
+                <Input
+                  type="password"
+                  placeholder="Password"
+                  value={formData.password}
+                  onChange={(e) =>
+                    setFormData({ ...formData, password: e.target.value })
                   }
                   disabled={hasUserData}
                 />
