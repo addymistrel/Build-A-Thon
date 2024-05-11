@@ -4,6 +4,7 @@ import "./Homepage.css";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import HeroSection from "../../Components/Hero/Hero";
+import Stats from '../../Components/Stats/Stats'
 
 // function Home() {
 //   const EURL = "http://localhost:8080";
@@ -81,6 +82,7 @@ export default function Homepage() {
     <>
       <Navbar />;
       <HeroSection/>
+      <Stats/>
       <Footer/>
     </>
   );
