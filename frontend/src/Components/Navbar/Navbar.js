@@ -77,6 +77,9 @@ const Navbar = () => {
     onClose();
     navigate('/register',{});
   }
+  function handleImageClick(){
+    navigate("/");
+  }
 
   return (
 
@@ -93,7 +96,9 @@ const Navbar = () => {
       >
         <Container maxW="1280px" px={4} mx="auto">
           <HStack spacing={4}>
-            <Image
+            <Image 
+            cursor={'grab'}
+            onClick={handleImageClick}
               alt="dev logo"
               w={"auto"}
               h={12}
