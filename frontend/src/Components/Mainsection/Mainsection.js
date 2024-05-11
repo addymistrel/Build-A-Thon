@@ -7,6 +7,7 @@ import {
   HStack,
   VStack,
   Flex,
+  Button, // Import Button component
   useColorModeValue,
   useBreakpointValue,
 } from "@chakra-ui/react";
@@ -126,6 +127,7 @@ const Card = ({ id, title, description, date }) => {
             {title}
           </chakra.h1>
           <Text fontSize="md">{description}</Text>
+          <Button colorScheme="red">Explore</Button>
         </VStack>
       </Box>
     </HStack>
