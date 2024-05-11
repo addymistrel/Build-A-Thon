@@ -127,7 +127,7 @@ const Card = ({ id, title, description, date }) => {
             {title}
           </chakra.h1>
           <Text fontSize="md">{description}</Text>
-          <Button colorScheme="red">Explore</Button>
+          <Button colorScheme="red" >Explore</Button>
         </VStack>
       </Box>
     </HStack>
