@@ -36,7 +36,6 @@ import {
 } from "react-icons/md";
 import { BsGithub, BsDiscord, BsPerson } from "react-icons/bs";
 import { BiCaretDownCircle } from "react-icons/bi";
-// import Cookies from "js-cookie";
 import { Navigate } from "react-router-dom";
 export default function ContactFaq() {
   const phone = "+91-9696969696";
@@ -83,7 +82,7 @@ export default function ContactFaq() {
         overflow="hidden"
       >
         <Heading as="h2" size="2xl" p={4}>
-          Welcome to Support Section of Grabway
+          Welcome to Support Section of AID-G
         </Heading>
         <Flex>
           <Box
@@ -250,7 +249,7 @@ export default function ContactFaq() {
         bg={"#F5F5F5"}
         direction={{ base: "column", md: "row" }}
       >
-        <Container>
+        <Container ml={14}>
           <Accordion
             allowMultiple
             width="100%"
@@ -267,17 +266,16 @@ export default function ContactFaq() {
                 _hover={{ bg: "gray.100" }}
               >
                 <Text fontSize="md" color="gray.800">
-                  What is Grabway's carpool service all about?
+                  Can I use this website if I'm not a tech whiz?
                 </Text>
                 <BiCaretDownCircle fontSize="24px" />
               </AccordionButton>
               <AccordionPanel pb={4}>
                 <Text color="gray.600">
-                  Grabway is a revolutionary car sharing company that connects
-                  company individuals for efficient and convenient carpooling.
-                  We provide a platform for employees to share rides, reduce
-                  commuting costs, and contribute to a greener environment by
-                  reducing the number of vehicles on the road.
+                  Of course! Our website is designed with you in mind, whether
+                  you're a tech titan or still getting the hang of this whole
+                  "internet" thing. It's as easy as pie—no PhD in computer
+                  science required!
                 </Text>
               </AccordionPanel>
             </AccordionItem>
@@ -291,17 +289,16 @@ export default function ContactFaq() {
                 color="gray.800"
               >
                 <Text fontSize="md">
-                  How does Grabway ensure the safety of its users?
+                  What if I accidentally press the wrong button?
                 </Text>
                 <BiCaretDownCircle fontSize="24px" />
               </AccordionButton>
               <AccordionPanel pb={4}>
                 <Text color="gray.600">
-                  Safety is our top priority. We implement rigorous background
-                  checks on all users, verifying their identities and driving
-                  records. Additionally, our rating and review system allows
-                  users to provide feedback about their carpooling experiences,
-                  ensuring a community of responsible and reliable members.
+                  Fear not, accidental button-pushers! We've built our website
+                  with big, friendly buttons that forgive even the clumsiest of
+                  fingers. Think of it as your digital bubble wrap—safe, secure,
+                  and satisfying to pop!
                 </Text>
               </AccordionPanel>
             </AccordionItem>
@@ -315,17 +312,17 @@ export default function ContactFaq() {
                 color="gray.800"
               >
                 <Text fontSize="md">
-                  How can I become a part of the Grabway community?
+                  How do I know if my message got through to the nurses?
                 </Text>
                 <BiCaretDownCircle fontSize="24px" />
               </AccordionButton>
               <AccordionPanel pb={4}>
                 <Text color="gray.600">
-                  Joining Grabway is easy! Simply sign up on our website or app,
-                  create your profile, and provide some basic information about
-                  your commuting preferences. You can then browse available
-                  carpooling options, connect with fellow coworkers, and start
-                  sharing rides.
+                  Simple! When you send a message using our Nurse's Whisper
+                  Button, a virtual carrier pigeon flies straight to the nurses'
+                  station, delivering your request with a flourish. Okay, maybe
+                  not a real pigeon, but you get the idea—your message is on its
+                  way!
                 </Text>
               </AccordionPanel>
             </AccordionItem>
@@ -339,18 +336,17 @@ export default function ContactFaq() {
                 color="gray.800"
               >
                 <Text fontSize="md">
-                  What are the benefits of using Grabway's carpool service?
+                  Will the AI really understand my doctor's handwriting?
                 </Text>
                 <BiCaretDownCircle fontSize="24px" />
               </AccordionButton>
               <AccordionPanel pb={4}>
                 <Text color="gray.600">
-                  There are numerous benefits to using Grabway's carpool
-                  service. You'll save money on commuting costs by sharing
-                  expenses with fellow riders. You'll also help reduce traffic
-                  congestion and lower your carbon footprint. Moreover,
-                  carpooling provides a great opportunity to network with
-                  colleagues and make your daily commute more enjoyable.
+                  You betcha! Our AI Rx Reader isn't just smart—it's practically
+                  psychic! Whether your doctor's handwriting resembles chicken
+                  scratch or calligraphy, our AI has a knack for deciphering
+                  even the most cryptic of prescriptions. It's like having your
+                  own personal medical translator!
                 </Text>
               </AccordionPanel>
             </AccordionItem>
@@ -364,18 +360,16 @@ export default function ContactFaq() {
                 color="gray.800"
               >
                 <Text fontSize="md">
-                  How does Grabway handle scheduling and route planning?
+                  Can I ask the voice assistant silly questions?
                 </Text>
                 <BiCaretDownCircle fontSize="24px" />
               </AccordionButton>
               <AccordionPanel pb={4}>
                 <Text color="gray.600">
-                  Grabway's advanced technology ensures hassle-free scheduling
-                  and route planning. Our intuitive app allows users to input
-                  their commuting preferences and schedules. The app then
-                  matches users with compatible carpool partners and generates
-                  optimized routes, making the entire process seamless and
-                  efficient.
+                  Absolutely! Our Chatty Companion Concierge is here to
+                  entertain as well as inform. Feel free to ask it anything—from
+                  the meaning of life to the best recipe for chocolate chip
+                  cookies. Just don't blame us if it starts telling dad jokes!
                 </Text>
               </AccordionPanel>
             </AccordionItem>
@@ -389,7 +383,7 @@ export default function ContactFaq() {
             h={400}
             p={5}
             src={
-              "https://cdni.iconscout.com/illustration/premium/thumb/online-taxi-booking-4865328-4046973.png"
+              "https://static.vecteezy.com/system/resources/previews/002/127/141/original/online-doctor-and-healthcare-concept-illustration-online-diagnose-online-consultation-personal-doctor-can-use-for-homepage-mobile-apps-character-cartoon-illustration-flat-style-free-vector.jpg"
             }
           />
         </Flex>
