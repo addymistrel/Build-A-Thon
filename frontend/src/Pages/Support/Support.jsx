@@ -34,12 +34,13 @@ import {
   MdFacebook,
   MdOutlineEmail,
 } from "react-icons/md";
+import React, { useState } from "react"
 import { BsGithub, BsDiscord, BsPerson } from "react-icons/bs";
 import { BiCaretDownCircle } from "react-icons/bi";
 import { Navigate } from "react-router-dom";
 export default function ContactFaq() {
   const phone = "+91-9696969696";
-  const email = "grabwayhelpdesk@gmail.com";
+  const email = "aidg@gmail.com";
   const address = "Bhubneswar, India";
 
   const { onCopy } = useClipboard(phone);
@@ -56,22 +57,20 @@ export default function ContactFaq() {
     });
   };
 
-  // const googleUserData = Cookies.get("grabwayGoogleToken");
+  const [rating, setRating] = useState(0); // Initialize state for star rating
 
-  // const userData = localStorage.getItem("grabwayUser");
-  // if (userData) {
-  //   if (JSON.parse(userData).name === "") {
-  //     return <Navigate to={"/registration"} userType="" />;
-  //   }
-  // }
-  // if (!userData) {
-  //   if (!googleUserData) {
-  //     return <Navigate to={"/"} />;
-  //   }
-  //   if (googleUserData) {
-  //     return <Navigate to={"/googleRegistration"} />;
-  //   }
-  // }
+  // Function to handle star rating selection
+  const handleStarClick = (index) => {
+    setRating(index + 1);
+  };
+
+  // Function to submit feedback
+  const submitFeedback = () => {
+    // Implement logic to submit feedback
+    console.log("Rating:", rating);
+    // Implement logic to submit feedback message and other details
+  };
+
   return (
     <>
       <Container

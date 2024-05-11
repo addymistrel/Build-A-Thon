@@ -33,7 +33,7 @@ const milestones = [
     title: "Our 24/7 buddy for a laugh or a weather update!",
     description:
       "Who needs a parrot when you have our Chatty Companion Concierge? It won't repeat everything you say, but it'll definitely brighten your day with jokes and weather updates. Just remember, it's a bit more high-tech than your old pal Polly.",
-    link: "/nurses-whisper",
+    link: "/product",
   },
 ];
 
