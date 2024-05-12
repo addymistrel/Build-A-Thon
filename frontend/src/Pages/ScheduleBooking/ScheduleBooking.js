@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useToast } from "@chakra-ui/react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 // components
 
@@ -26,6 +27,7 @@ export default function ScheduleBooking({ userData }) {
   const [disabledState, setDisabledState] = useState("");
   const [editVal, setEditVal] = useState("");
   const [postData, setPostData] = useState("");
+  const navigate = useNavigate();
 
   //field data
   let propDetails = {
@@ -252,6 +254,7 @@ export default function ScheduleBooking({ userData }) {
       pin: pin,
       service: service,
     };
+    navigate("/maps");
   };
 
   return (

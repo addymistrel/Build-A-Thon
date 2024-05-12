@@ -1,0 +1,12 @@
+.mainMap {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 5%;
+}
+
+@media (max-width: 1200px) {
+  .mainMap {
+    flex-direction: column;
+    padding-right: 0;
+  }
+}
