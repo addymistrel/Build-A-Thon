@@ -11,7 +11,6 @@ const nodemailer = require("nodemailer");
 const ApplyAdmissionModel = require("./Schema/Admission");
 const NurseModel = require("./Schema/NurseModel");
 const EmailModel = require("./Schema/Email");
-const EmailModel = require("./Schema/Email");
 
 //environment variables
 const MONGO_URL =
@@ -199,14 +198,14 @@ app.post("/register/nurse", async (req, res) => {
   const UHID = formData.UHID;
   const NUID = formData.NUID;
   const Experience = formData.Exp;
-  const password=formData.password;
+  const password = formData.password;
   const userType = "nurse";
   if (formData) {
     try {
       const updatedResponse = await NurseModel.create({
         email: email,
         name: name,
-        password:password,
+        password: password,
         phoneNumber: phoneNumber,
         "address.0.addressName": addressName,
         "address.0.addressLine1": addressLine1,
@@ -220,11 +219,11 @@ app.post("/register/nurse", async (req, res) => {
         userType: userType,
       });
       if (updatedResponse) {
-        const EmailModel= await EmailModel.create({
-          email:email,
-          password:password,
-          userType:userType,
-        })
+        const EmailModel = await EmailModel.create({
+          email: email,
+          password: password,
+          userType: userType,
+        });
         res.status(200).json(true);
       } else {
         res.status(200).json(null);

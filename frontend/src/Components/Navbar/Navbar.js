@@ -56,33 +56,28 @@ const IconButton = ({ children }) => {
 };
 
 const Navbar = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
-  const [email,setEmail] = useState(null);
+  const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
-  async function HandleLogin(){
-    const res= await axios.post("/nurse/login", {
-      email:email,
-      password:password
-    }).then(()=>{
-      console.log('success');
-    })
+  async function HandleLogin() {
+    onClose();
+    navigate("/user/dashboard");
   }
 
-  function HandleSignUp(){
+  function HandleSignUp() {
     onClose();
-    navigate('/register',{});
+    navigate("/register", {});
   }
-  function handleImageClick(){
+  function handleImageClick() {
     navigate("/");
   }
 
   return (
-
     <>
       <Box
         py="2"
@@ -96,9 +91,9 @@ const Navbar = () => {
       >
         <Container maxW="1280px" px={4} mx="auto">
           <HStack spacing={4}>
-            <Image 
-            cursor={'grab'}
-            onClick={handleImageClick}
+            <Image
+              cursor={"grab"}
+              onClick={handleImageClick}
               alt="dev logo"
               w={"auto"}
               h={12}
@@ -122,7 +117,7 @@ const Navbar = () => {
               >
                 Sign in
               </Button>
-              
+
               {/* <IconButton>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -223,7 +218,9 @@ const Navbar = () => {
                   type="email"
                   ref={initialRef}
                   placeholder="Enter Your Email"
-                  onChange={(e)=>{setEmail(e.target.value)}}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                 />
               </InputGroup>
             </FormControl>
@@ -243,7 +240,9 @@ const Navbar = () => {
                   variant={"filled"}
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter Your Password"
-                  onChange={(e)=>{setPassword(e.target.value)}}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                 />
                 <InputRightElement>
                   <IconButton
@@ -261,8 +260,12 @@ const Navbar = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Button background={"#e51b23"} color={"white"} mr={3}
-            onClick={HandleLogin}>
+            <Button
+              background={"#e51b23"}
+              color={"white"}
+              mr={3}
+              onClick={HandleLogin}
+            >
               Login
             </Button>
             <Button onClick={HandleSignUp}>Sign up</Button>

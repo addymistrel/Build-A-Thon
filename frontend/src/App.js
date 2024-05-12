@@ -8,6 +8,7 @@ import ContactFaq from "./Pages/Support/Support";
 import Product from "./Pages/Product/Product";
 import Navbar from "./Components/Navbar/Navbar";
 import Register from "./Pages/RegisterChoice/Register";
+import Map from "./Pages/Map/Map";
 export default function App() {
   return (
     <>
@@ -30,6 +31,7 @@ export default function App() {
             <Route path="/user/dashboard" element={<UserDashboard />} />
             <Route path="/product" element={<Product />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/maps" element={<Map />} />
           </Routes>
         </div>
       </BrowserRouter>

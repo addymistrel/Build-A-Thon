@@ -18,7 +18,7 @@ const milestones = [
     date: "Nurse's Whisper Button",
     title: "Stay in touch with a simple tap!",
     description: `Who says only grandkids can summon help with a button? Give our "Nurse's Whisper Button" a gentle press, and watch the cavalry come trotting with a smile!`,
-    link: "/nurses-whisper",
+    link: "/user/dashboard",
   },
   {
     id: 2,
@@ -80,7 +80,7 @@ const Mainsection = () => {
   );
 };
 
-const Card = ({ id, title, description, date,link }) => {
+const Card = ({ id, title, description, date, link }) => {
   const isEvenId = id % 2 == 0;
   let borderWidthValue = isEvenId ? "15px 15px 15px 0" : "15px 0 15px 15px";
   let leftValue = isEvenId ? "-15px" : "unset";
