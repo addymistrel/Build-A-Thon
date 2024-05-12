@@ -1,0 +1,26 @@
+.star-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stars-container {
+  display: flex;
+  gap: 5px;
+}
+
+.star-rating button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 24px; /* Adjust the size of the stars */
+}
+
+.on {
+  color: #000;
+}
+
+.off {
+  color: #ccc;
+}
