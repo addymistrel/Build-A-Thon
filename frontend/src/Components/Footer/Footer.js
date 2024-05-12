@@ -11,28 +11,28 @@ import {
 import { useState, useEffect } from "react";
 // import { ReactNode } from "react";
 
-const Logo = (props) => {
-  return (
-    <img
-      style={{
-        maxWidth: "40%",
-        height: "auto",
-        "@media (min-width: 768px)": {
-          maxWidth: "30%",
-        },
-        "@media (min-width: 1024px)": {
-          maxWidth: "20%",
-        },
-        "@media (min-width: 1440px)": {
-          maxWidth: "10%",
-        },
-      }}
-      src="/assets/images/logo.png"
-      alt="Logo"
-      {...props}
-    />
-  );
-};
+// const Logo = (props) => {
+//   return (
+//     <img
+//       style={{
+//         // maxWidth: "40%",
+//         height: "auto",
+//         "@media (min-width: 768px)": {
+//           maxWidth: "20%",
+//         },
+//         "@media (min-width: 1024px)": {
+//           maxWidth: "15%",
+//         },
+//         "@media (min-width: 1440px)": {
+//           maxWidth: "10%",
+//         },
+//       }}
+//       src="/assets/image/logo.jpg"
+//       alt="Logo"
+//       {...props}
+//     />
+//   );
+// };
 
 const ListHeader = ({ children }) => {
   return (
@@ -169,10 +169,10 @@ export default function Footer() {
             ml: 8,
           }}
         >
-          <Logo />
+          {/* <Logo /> */}
         </Flex>
         <Text pt={6} fontSize={"sm"} textAlign={"center"}>
-          © Made By Cosmic Codemen
+          © Made By Team Medical Marvics
         </Text>
       </Box>
     </Box>
