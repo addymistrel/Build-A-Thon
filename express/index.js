@@ -10,6 +10,8 @@ const Razorpay = require("razorpay");
 const nodemailer = require("nodemailer");
 const ApplyAdmissionModel = require("./Schema/Admission");
 const NurseModel = require("./Schema/NurseModel");
+const EmailModel = require("./Schema/Email");
+const EmailModel = require("./Schema/Email");
 
 //environment variables
 const MONGO_URL =
@@ -151,7 +153,37 @@ app.post("/checkConnection", async (req, res) => {
 //   });
 // });
 
-app.post("/registerNewNurse", async (req, res) => {
+app.post("/nurse/login", async (req, res) => {
+  await mongoose.connect(MONGO_URL);
+  const email = req.body.email;
+  const password = req.body.password;
+  if (email && password) {
+    const UserEmail = await EmailModel.findOne({ email: email });
+    if (UserEmail !== null) {
+      console.log("UserEmail found");
+      if (password === UserEmail.password) {
+        console.log("Password validated");
+        const userType = UserEmail.userType;
+        const email = UserEmail.email;
+        if (userType === "user") {
+          console.log("user");
+          const UserData = await UserModel.findOne({ email });
+          res.status(200).json(UserData);
+        }
+        if (userType === "nurse") {
+          console.log("nurse");
+          const UserData = await NurseModel.findOne({ email });
+          res.status(200).json(UserData);
+        }
+      }
+    }
+  } else {
+    console.log("email or password missing");
+    res.status(404).json("Email or password missing");
+  }
+});
+
+app.post("/register/nurse", async (req, res) => {
   await mongoose.connect(MONGO_URL);
   console.log(req.body.formData);
   const formData = req.body.formData;
@@ -166,30 +198,33 @@ app.post("/registerNewNurse", async (req, res) => {
   const pin = formData.pin;
   const UHID = formData.UHID;
   const NUID = formData.NUID;
-  const Experience = formData.Exp
+  const Experience = formData.Exp;
+  const password=formData.password;
+  const userType = "nurse";
   if (formData) {
     try {
-      const updatedResponse = await NurseModel.create(
-        {
-          email: email,
-        },
-        {
-          $set: {
-            name: name,
-            phoneNumber: phoneNumber,
-            "address.0.addressName": addressName,
-            "address.0.addressLine1": addressLine1,
-            "address.0.addressLine2": addressLine2,
-            "address.0.city": city,
-            "address.0.state": state,
-            "address.0.pincode": pin,
-            UHID:UHID,
-            NUID:NUID,
-            Experience:Experience
-          },
-        }
-      );
+      const updatedResponse = await NurseModel.create({
+        email: email,
+        name: name,
+        password:password,
+        phoneNumber: phoneNumber,
+        "address.0.addressName": addressName,
+        "address.0.addressLine1": addressLine1,
+        "address.0.addressLine2": addressLine2,
+        "address.0.city": city,
+        "address.0.state": state,
+        "address.0.pincode": pin,
+        UHID: UHID,
+        NUID: NUID,
+        Experience: Experience,
+        userType: userType,
+      });
       if (updatedResponse) {
+        const EmailModel= await EmailModel.create({
+          email:email,
+          password:password,
+          userType:userType,
+        })
         res.status(200).json(true);
       } else {
         res.status(200).json(null);
@@ -202,7 +237,6 @@ app.post("/registerNewNurse", async (req, res) => {
     res.status(500).json("Internal Server Error");
   }
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);

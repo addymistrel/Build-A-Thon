@@ -18,11 +18,12 @@ import {
   Image,
 } from "@chakra-ui/react";
 //import Cookies from "js-cookie";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import imageCompression from "browser-image-compression";
 
 const NurseRegistration = () => {
+    const navigate=useNavigate();
   //const { setRunContext } = useContext(UserContext);
   const userData = localStorage.getItem("grabwayUser");
   const hasUserData = userData;
@@ -32,6 +33,7 @@ const NurseRegistration = () => {
     name: "",
     lastName: "",
     email: hasUserData ? JSON.parse(userData).email : "",
+    password:null,
     phoneNumber: hasUserData ? JSON.parse(userData).phoneNumber : "",
     location: "",
     addressLine1: "",
@@ -153,11 +155,11 @@ const NurseRegistration = () => {
       //Submission logic here
       //console.log("clicked");
       const response = await axios
-        .post("/registerNewDriver", {
+        .post("/register/nurse", {
           formData,
         })
         .then((res) => {
-          //console.log(res);
+          console.log(res);
           setTimeout(() => {
             //setRunContext("driver from submited");
           }, 1500);
@@ -171,7 +173,9 @@ const NurseRegistration = () => {
       setErrors(newErrors);
     }
   };
-
+  function RedirectToBookings(){
+    navigate("/nurse/active/bookings");
+  }
   
   return (
     <div className="background-container">
@@ -258,6 +262,21 @@ const NurseRegistration = () => {
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
+                  }
+                  disabled={hasUserData}
+                />
+                <FormErrorMessage>{errors.email}</FormErrorMessage>
+              </FormControl>
+
+              {/* Password */}
+              <FormControl mt={4} isRequired isInvalid={!!errors.email}>
+                <FormLabel>Password</FormLabel>
+                <Input
+                  type="password"
+                  placeholder="Password"
+                  value={formData.password}
+                  onChange={(e) =>
+                    setFormData({ ...formData, password: e.target.value })
                   }
                   disabled={hasUserData}
                 />
@@ -444,7 +463,8 @@ const NurseRegistration = () => {
             <Button
               colorScheme="blue"
               mt={4}
-              onClick={handleSubmit}
+              //onClick={handleSubmit}
+              onClick={RedirectToBookings}
               isDisabled={!isChecked}
             >
               Register

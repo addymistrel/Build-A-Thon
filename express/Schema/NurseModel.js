@@ -38,7 +38,7 @@ const RouteSchema = new mongoose.Schema({
   destinationTime: [RouteTime],
 });
 
-const RideHistorySchema = new mongoose.Schema({
+const ScheduleHistorySchema = new mongoose.Schema({
   rideId: { type: String },
   origin: [LocationSchema],
   destination: [LocationSchema],
@@ -56,7 +56,7 @@ const NurseSchema = new mongoose.Schema({
   address: [AddressSchema],
   paymentInfo: [PaymentSchema],
   routes: [RouteSchema],
-  rideHistory: [RideHistorySchema],
+  rideHistory: [ScheduleHistorySchema],
   credits: { type: Number },
   userType: { type: String },
   experience: { type: String },

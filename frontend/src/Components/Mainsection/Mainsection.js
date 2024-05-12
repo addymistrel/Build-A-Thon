@@ -18,19 +18,22 @@ const milestones = [
     date: "Nurse's Whisper Button",
     title: "Stay in touch with a simple tap!",
     description: `Who says only grandkids can summon help with a button? Give our "Nurse's Whisper Button" a gentle press, and watch the cavalry come trotting with a smile!`,
+    link: "/nurses-whisper",
   },
   {
     id: 2,
     date: "Magic Pill Decoder",
     title: "Let our AI wizard read your prescriptions!",
     description: `No crystal ball needed—just upload your scribbled doctor's note, and our AI will decipher it faster than you can say "abracadabra"! Finally, no more guessing if it says "1 pill" or "10 pills"!`,
+    link: "https://chatpdfgpt.vercel.app/",
   },
   {
     id: 3,
     date: "Chatty Companion Concierge",
-    title: "our 24/7 buddy for a laugh or a weather update!",
+    title: "Our 24/7 buddy for a laugh or a weather update!",
     description:
       "Who needs a parrot when you have our Chatty Companion Concierge? It won't repeat everything you say, but it'll definitely brighten your day with jokes and weather updates. Just remember, it's a bit more high-tech than your old pal Polly.",
+    link: "/product",
   },
 ];
 
@@ -77,9 +80,7 @@ const Mainsection = () => {
   );
 };
 
-const Card = ({ id, title, description, date }) => {
-  // For even id show card on left side
-  // For odd id show card on right side
+const Card = ({ id, title, description, date,link }) => {
   const isEvenId = id % 2 == 0;
   let borderWidthValue = isEvenId ? "15px 15px 15px 0" : "15px 0 15px 15px";
   let leftValue = isEvenId ? "-15px" : "unset";
@@ -127,7 +128,9 @@ const Card = ({ id, title, description, date }) => {
             {title}
           </chakra.h1>
           <Text fontSize="md">{description}</Text>
-          <Button colorScheme="red">Explore</Button>
+          <Button as="a" href={link} colorScheme="red">
+            Explore
+          </Button>
         </VStack>
       </Box>
     </HStack>
