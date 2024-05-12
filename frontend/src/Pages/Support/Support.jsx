@@ -34,9 +34,9 @@ import {
   MdFacebook,
   MdOutlineEmail,
 } from "react-icons/md";
-import React, { useState } from "react"
 import { BsGithub, BsDiscord, BsPerson } from "react-icons/bs";
 import { BiCaretDownCircle } from "react-icons/bi";
+import StarRating from "../../Components/StarRateing/StarRating";
 import { Navigate } from "react-router-dom";
 export default function ContactFaq() {
   const phone = "+91-9696969696";
@@ -55,20 +55,6 @@ export default function ContactFaq() {
       duration: 3000,
       isClosable: true,
     });
-  };
-
-  const [rating, setRating] = useState(0); // Initialize state for star rating
-
-  // Function to handle star rating selection
-  const handleStarClick = (index) => {
-    setRating(index + 1);
-  };
-
-  // Function to submit feedback
-  const submitFeedback = () => {
-    // Implement logic to submit feedback
-    console.log("Rating:", rating);
-    // Implement logic to submit feedback message and other details
   };
 
   return (
@@ -221,6 +207,7 @@ export default function ContactFaq() {
                             Send Message
                           </Button>
                         </FormControl>
+                        <StarRating />
                       </VStack>
                     </Box>
                   </Box>
