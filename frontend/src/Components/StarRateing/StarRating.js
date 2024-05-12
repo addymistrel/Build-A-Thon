@@ -34,8 +34,8 @@ const StarRating = () => {
       </div>
       <Textarea
         placeholder="Leave your feedback here..."
-        value={rating}
-        onChange={(e) => setRating(e.target.value)}
+        value={rating === 0 ? "" : rating}
+        onChange={(e) => setRating(parseInt(e.target.value))}
         size="md"
       />
     </VStack>
